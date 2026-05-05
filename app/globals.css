@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* ── Theme Configuration (replaces tailwind.config.js) ── */
+@theme {
+  --color-brand-red: #e11d48;
+  --color-brand-orange: #f97316;
+  --color-brand-dark: #030303;
+  --color-brand-card: #0a0a0a;
+  --color-brand-border: rgba(255, 255, 255, 0.08);
+
+  --font-sans: 'Inter', system-ui, 'Segoe UI', sans-serif;
+
+  --animate-glow-pulse: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0.9; transform: translateX(-50%) scale(1.2); }
+}
+
+/* ── Base Styles ── */
+@layer base {
+  body {
+    background-color: #030303;
+    color: #e5e5e5;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* ── Custom Utilities ── */
+@utility hero-bg {
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+@utility hero-glow {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(225, 29, 72, 0.4) 0%, rgba(249, 115, 22, 0.15) 40%, transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@utility timeline-line {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 0;
+  width: 3px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@utility timeline-dot {
+  position: absolute;
+  border-radius: 50%;
+}
+
+@utility avatar-wrapper {
+  position: relative;
+  padding: 4px;
+  background: linear-gradient(135deg, #f97316, #e11d48, #8b5cf6);
+  border-radius: 50%;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e11d48;
+}
+
+/* ── Focus States ── */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #e11d48;
+  box-shadow: 0 0 0 1px rgba(225, 29, 72, 0.3);
+}
