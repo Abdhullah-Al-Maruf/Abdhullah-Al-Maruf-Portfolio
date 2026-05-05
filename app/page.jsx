@@ -3,7 +3,8 @@
 import { Navbar } from '@/components/Navbar';
 import {
   Layout, Atom, Wind,
-  Github, Mail, MapPin, Linkedin, Twitter, Heart, Briefcase, GraduationCap
+  Github, Mail, MapPin, Linkedin, Twitter, Heart, Briefcase, GraduationCap,
+  CheckCircle, X
 } from 'lucide-react';
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGithub } from 'react-icons/fa';
 import { SiTailwindcss, SiMongodb, SiExpress, SiPostman, SiNextdotjs } from 'react-icons/si';
@@ -12,7 +13,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const socialLinks = [
   {
@@ -39,6 +40,39 @@ const colorMap = {
 export default function Home() {
   const containerRef = useRef(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/mdmaruf20053@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        setShowSuccessModal(true);
+        e.target.reset();
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const projects = [
     {
@@ -694,7 +728,7 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-3">
-              <form action="https://formsubmit.co/mdmaruf20053@gmail.com" method="POST" className="bg-white/5 backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] space-y-6 shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group">
+              <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] space-y-6 shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 {/* FormSubmit Configuration */}
@@ -724,15 +758,76 @@ export default function Home() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="relative z-10 bg-brand-red/80 backdrop-blur-xl border border-brand-red/40 hover:bg-brand-red text-white w-full py-4 rounded-2xl font-bold tracking-widest uppercase text-sm shadow-[0_0_20px_rgba(225,29,72,0.4)] mt-4"
+                  disabled={isSubmitting}
+                  className={`relative z-10 bg-brand-red/80 backdrop-blur-xl border border-brand-red/40 hover:bg-brand-red text-white w-full py-4 rounded-2xl font-bold tracking-widest uppercase text-sm shadow-[0_0_20px_rgba(225,29,72,0.4)] mt-4 flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      Sending...
+                    </>
+                  ) : "Send Message"}
                 </motion.button>
               </form>
             </div>
           </div>
         </section>
       </main>
+
+      <AnimatePresence>
+        {showSuccessModal && (
+          <div className="fixed inset-0 z-[100000] flex items-center justify-center px-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowSuccessModal(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative bg-[#0a0a0a] border border-white/10 p-8 md:p-12 rounded-[3rem] max-w-lg w-full text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-orange via-brand-red to-purple-600"></div>
+              
+              <button 
+                onClick={() => setShowSuccessModal(false)}
+                className="absolute top-6 right-6 text-gray-500 hover:text-white transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              <div className="mb-8 relative">
+                <motion.div 
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                  className="w-24 h-24 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto border border-brand-red/20 shadow-[0_0_30px_rgba(225,29,72,0.2)]"
+                >
+                  <CheckCircle className="w-12 h-12 text-brand-red" />
+                </motion.div>
+                <div className="absolute -inset-4 bg-brand-red/5 blur-2xl rounded-full -z-10 animate-pulse"></div>
+              </div>
+
+              <h3 className="text-3xl font-black text-white mb-4 tracking-tight">Message Sent!</h3>
+              <p className="text-gray-400 leading-relaxed mb-8">
+                Thank you for reaching out. I've received your message and will get back to you as soon as possible.
+              </p>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setShowSuccessModal(false)}
+                className="w-full bg-brand-red/80 hover:bg-brand-red text-white py-4 rounded-2xl font-bold tracking-widest uppercase text-sm shadow-[0_0_20px_rgba(225,29,72,0.3)] transition-all"
+              >
+                Back to Portfolio
+              </motion.button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Footer */}
       <footer className="border-t  border-white/10 bg-black/40 backdrop-blur-2xl py-10 mt-20 relative z-10">
