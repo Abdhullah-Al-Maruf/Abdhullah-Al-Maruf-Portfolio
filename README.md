@@ -11,6 +11,10 @@
 
 <img width="1865" height="797" alt="image" src="https://github.com/user-attachments/assets/55a6e3a9-ddf9-4484-9338-6646f45ebf5b" />
 
+
+ ---
+ **🌐 Website:** [maruf-dev-portfolio.vercel.app](https://maruf-dev-portfolio.vercel.app/)
+ ---
 *Showcasing innovation, creativity, and technical excellence*
 
 </div>
@@ -252,8 +256,7 @@ Building this portfolio taught me:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/your-profile)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/your-handle)
 
-**📧 Email:** your-email@example.com  
-**🌐 Website:** [maruf-dev-portfolio.vercel.app](https://maruf-dev-portfolio.vercel.app/)
+
 
 </div>
 
