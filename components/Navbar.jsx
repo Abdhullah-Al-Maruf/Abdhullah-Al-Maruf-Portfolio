@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLenis } from 'lenis/react';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('#home');
+  const lenis = useLenis();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,9 +37,12 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isDrawerOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [isDrawerOpen]);
+    if (isDrawerOpen) {
+      lenis?.stop();
+    } else {
+      lenis?.start();
+    }
+  }, [isDrawerOpen, lenis]);
 
   const navLinks = [
     { name: 'About', href: '#about' },

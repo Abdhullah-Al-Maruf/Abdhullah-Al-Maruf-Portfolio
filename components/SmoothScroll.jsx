@@ -53,9 +53,14 @@ export function SmoothScroll({ children }) {
       autoRaf={false} // Let GSAP Ticker handle the RAF
       root 
       options={{
-        lerp: 0.08, // Adjusted for a snappy yet smooth feel
-        wheelMultiplier: 1, // Normalized wheel speed
+        duration: 1.2,
+        lerp: 0.1, // Slightly more responsive
+        wheelMultiplier: 1,
+        touchMultiplier: 2, // Better responsiveness on mobile
         smoothWheel: true,
+        smoothTouch: true, // Crucial for mobile smooth scrolling
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
       }}
     >
       <AnchorManager />

@@ -14,6 +14,8 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLenis } from 'lenis/react';
+import headshot from '@/public/headshot.jpg';
 
 const socialLinks = [
   {
@@ -145,15 +147,17 @@ export default function Home() {
 
   ];
 
+  const lenis = useLenis();
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
 
       // 1. Loading Screen & Hero Entrance Timeline
-      document.body.style.overflow = "hidden";
+      if (lenis) lenis.stop();
       const tl = gsap.timeline({
         onComplete: () => {
-          document.body.style.overflow = "";
+          if (lenis) lenis.start();
           const loader = document.querySelector('.loader-overlay');
           if (loader) loader.style.display = 'none';
           ScrollTrigger.refresh();
@@ -410,7 +414,7 @@ export default function Home() {
                 className="avatar-wrapper shadow-[0_0_30px_rgba(225,29,72,0.3)]"
               >
                 <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden bg-black/50 backdrop-blur-md border-4 border-white/10 relative">
-                  <Image src="/headshot.jpg" alt="Profile" fill
+                  <Image src={headshot} alt="Profile" fill priority
                     className="object-cover object-top" />
                 </div>
               </motion.div>
