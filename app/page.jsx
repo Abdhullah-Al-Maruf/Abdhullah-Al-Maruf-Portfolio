@@ -398,7 +398,7 @@ export default function Home() {
             <p className="text-gray-400 text-sm mt-1">Get to know me better</p>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-12 justify-center bg-white/5 backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group hover:border-white/20 transition-all duration-500">
+          <div className="flex flex-col md:flex-row items-center gap-12 justify-center bg-white/5 backdrop-blur-md md:backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group hover:border-white/20 transition-all duration-500">
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="flex-1 text-gray-300 space-y-4 text-sm leading-relaxed border-l-2 border-brand-orange/50 pl-6 max-w-lg relative z-10">
               <p>I am a driven and passionate Full Stack Developer with experience in building scalable web applications. I
@@ -414,7 +414,7 @@ export default function Home() {
                 className="avatar-wrapper shadow-[0_0_30px_rgba(225,29,72,0.3)]"
               >
                 <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden bg-black/50 backdrop-blur-md border-4 border-white/10 relative">
-                  <Image src={headshot} alt="Profile" fill priority
+                  <Image src={headshot} alt="Profile" fill priority unoptimized
                     className="object-cover object-top" />
                 </div>
               </motion.div>
@@ -429,7 +429,7 @@ export default function Home() {
             <p className="text-gray-400 text-sm mt-1">My technical arsenal</p>
           </div>
 
-          <div className="skill-container bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-10 max-w-3xl mx-auto shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-500 relative overflow-hidden group">
+          <div className="skill-container bg-white/5 backdrop-blur-md md:backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-10 max-w-3xl mx-auto shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-500 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-orange/5 to-brand-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             {/* Frontend */}
@@ -494,7 +494,7 @@ export default function Home() {
               <motion.div
                 key={idx}
                 whileHover={{ y: -10 }}
-                className="bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 overflow-hidden flex flex-col group shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.15)] hover:border-white/30 transition-colors"
+                className="bg-white/5 backdrop-blur-md md:backdrop-blur-2xl rounded-3xl border border-white/10 overflow-hidden flex flex-col group shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.15)] hover:border-white/30 transition-colors"
               >
                 <div className="h-48 overflow-hidden relative border-b border-white/10">
                   <Image src={proj.image} alt={proj.title} fill
@@ -603,7 +603,7 @@ export default function Home() {
                 <div className="timeline-dot flex items-center justify-center w-8 h-8 md:left-[-1px] left-[-32px] top-4 group-hover:scale-110 shadow-[0_0_20px_rgba(225,29,72,0.6)] transition-transform z-10" style={{ backgroundColor: exp.hex }}>
                   {exp.icon}
                 </div>
-                <div className="timeline-content bg-white/5 backdrop-blur-2xl p-8 rounded-[2.5rem] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(225,29,72,0.15)] relative overflow-hidden transition-colors">
+                <div className="timeline-content bg-white/5 backdrop-blur-md md:backdrop-blur-2xl p-8 rounded-[2.5rem] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(225,29,72,0.15)] relative overflow-hidden transition-colors">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
@@ -666,7 +666,7 @@ export default function Home() {
                 <div className="timeline-dot flex items-center justify-center w-8 h-8 md:left-[-1px] left-[-32px] top-4 group-hover:scale-110 shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-transform z-10" style={{ backgroundColor: edu.hex }}>
                   {edu.icon}
                 </div>
-                <div className="timeline-content bg-white/5 backdrop-blur-2xl p-8 rounded-[2.5rem] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.15)] relative overflow-hidden transition-colors">
+                <div className="timeline-content bg-white/5 backdrop-blur-md md:backdrop-blur-2xl p-8 rounded-[2.5rem] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.15)] relative overflow-hidden transition-colors">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
@@ -700,7 +700,7 @@ export default function Home() {
                 <motion.div
                   key={idx}
                   whileHover={{ y: -5 }}
-                  className="bg-white/5 backdrop-blur-2xl border border-white/10 p-8 rounded-[2.5rem] text-center shadow-[0_8px_32px_rgba(0,0,0,0.3)] group relative overflow-hidden"
+                  className="bg-white/5 backdrop-blur-md md:backdrop-blur-2xl border border-white/10 p-8 rounded-[2.5rem] text-center shadow-[0_8px_32px_rgba(0,0,0,0.3)] group relative overflow-hidden"
                 >
                   <div className="relative z-10">
                     <div className="w-16 h-16 mx-auto bg-white/5 backdrop-blur-md rounded-full flex items-center justify-center mb-5 border border-white/10 group-hover:scale-110 transition-transform duration-500 shadow-lg">
@@ -732,7 +732,7 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-3">
-              <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] space-y-6 shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group">
+              <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-md md:backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] space-y-6 shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 {/* FormSubmit Configuration */}

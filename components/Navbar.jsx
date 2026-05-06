@@ -58,7 +58,7 @@ export function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 w-full z-40 py-4 transition-all duration-500 ${isScrolled ? 'bg-white/5 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]' : 'bg-transparent py-6'}`}
+        className={`fixed top-0 w-full z-40 py-4 transition-all duration-500 ${isScrolled ? 'bg-white/5 backdrop-blur-md md:backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]' : 'bg-transparent py-6'}`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
           <Link href="#home" onClick={() => setActiveTab('#home')} className="font-extrabold text-xl tracking-widest hover:text-brand-red transition-all cursor-pointer text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
