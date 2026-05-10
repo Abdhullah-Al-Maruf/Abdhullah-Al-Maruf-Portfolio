@@ -3,7 +3,7 @@
 import { Navbar } from '@/components/Navbar';
 import {
   Layout, Atom, Wind,
-  Github, Mail, MapPin, Linkedin, Twitter, Heart, Briefcase, GraduationCap,
+  Github, Mail, MapPin, Linkedin, Twitter, Facebook, Heart, Briefcase, GraduationCap,
   CheckCircle, X
 } from 'lucide-react';
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGithub } from 'react-icons/fa';
@@ -28,7 +28,11 @@ const socialLinks = [
   },
   {
     icon: Twitter,
-    url: "#" // add later if you want
+    url: "https://x.com/AbdhullahA67378"
+  },
+  {
+    icon: Facebook,
+    url: "https://www.facebook.com/abdhullah.al.maruf"
   }
 ];
 
