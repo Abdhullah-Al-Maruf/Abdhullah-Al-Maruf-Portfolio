@@ -361,7 +361,7 @@ export default function Home() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#"
+              href="https://drive.google.com/uc?export=download&id=1jUGSBUvch_qTevvfYHEpaeQ9LnUTgwg5"
               className="bg-brand-red/80 backdrop-blur-xl hover:bg-brand-red text-white px-8 py-3.5 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(225,29,72,0.4)] hover:shadow-[0_0_30px_rgba(225,29,72,0.7)] border border-white/20"
             >
               Resume
